@@ -29,7 +29,9 @@ jobs:
             maven-${{ runner.os }}
 
       - name: Build and SonarQube Scan
-        run: mvn clean verify sonar:sonar \
-          -Dsonar.projectKey=my-project \
-          -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
-          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+        run: |
+          mvn clean verify sonar:sonar \
+            -Dsonar.projectKey=my-project \
+            -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
+            -Dsonar.token=${{ secrets.SONAR_TOKEN }}
+          
